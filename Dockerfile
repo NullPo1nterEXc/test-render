@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/render-test.jar render-test.jar
+COPY --from=build /target/*.jar render-test.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "shop-polyedrum-server.jar"]
